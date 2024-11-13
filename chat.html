@@ -1,0 +1,57 @@
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat with AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-box">
+      <div class="chat-header">Chat with AI</div>
+      <div class="chat-content" id="chat-content">
+        <!-- Chat messages will appear here -->
+      </div>
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js">
+    // script.js
+
+function sendMessage() {
+  const userInput = document.getElementById("user-input");
+  const chatContent = document.getElementById("chat-content");
+
+  if (userInput.value.trim() !== "") {
+    // Create user message
+    const userMessage = document.createElement("div");
+    userMessage.className = "user-message";
+    userMessage.textContent = userInput.value;
+    chatContent.appendChild(userMessage);
+
+    // Clear input field
+    userInput.value = "";
+
+    // Simulate AI response
+    setTimeout(() => {
+      const aiMessage = document.createElement("div");
+      aiMessage.className = "ai-message";
+      aiMessage.textContent = "Hello! How can I assist you today?";
+      chatContent.appendChild(aiMessage);
+
+      // Scroll to bottom of chat
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }, 500);
+  }
+}
+
+  </script>
+</body>
+</html>
+
+  
